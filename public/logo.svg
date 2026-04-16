@@ -1,0 +1,45 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="512" height="512" rx="256" fill="#F4F5F7"/>
+  <circle cx="256" cy="256" r="244" stroke="#E3E6EA" stroke-width="2"/>
+
+  <g transform="translate(90,70)">
+    <circle cx="166" cy="110" r="98" fill="#0A3F78"/>
+    <path d="M68 78C95 38 132 18 166 18C204 18 239 40 264 74" stroke="#F3F7FC" stroke-width="10"/>
+    <path d="M72 148C95 182 129 204 166 204C202 204 236 184 260 150" stroke="#F3F7FC" stroke-width="10"/>
+    <path d="M121 20C109 45 102 78 100 110" stroke="#F3F7FC" stroke-width="8"/>
+    <path d="M212 20C224 45 231 78 233 110" stroke="#F3F7FC" stroke-width="8"/>
+
+    <path d="M36 120C68 78 105 60 144 53V120H36Z" fill="url(#cargoBlue)"/>
+    <path d="M144 53C170 57 194 66 220 80L144 120V53Z" fill="url(#cargoOrange)"/>
+    <g stroke="#D8E6F7" stroke-width="3">
+      <path d="M52 114V89"/><path d="M66 114V83"/><path d="M80 114V77"/><path d="M94 114V71"/>
+      <path d="M108 114V65"/><path d="M122 114V59"/><path d="M136 114V55"/>
+    </g>
+    <g stroke="#FFD98E" stroke-width="3">
+      <path d="M156 116V68"/><path d="M170 110V72"/><path d="M184 103V78"/><path d="M198 97V84"/>
+    </g>
+
+    <path d="M0 132C45 170 152 162 252 118C297 98 329 79 332 67C300 94 254 115 203 130C130 151 57 158 0 132Z" fill="#0A3F78"/>
+    <path d="M30 155C80 177 154 173 241 147C284 134 315 121 332 107C319 136 287 163 242 184C157 223 78 219 30 155Z" fill="#F7931E"/>
+    <path d="M250 173C278 150 300 126 312 104L305 143L250 173Z" fill="white"/>
+  </g>
+
+  <g transform="translate(68,300)">
+    <text x="0" y="50" font-size="76" font-family="Poppins, Arial, sans-serif" font-style="italic" font-weight="700" fill="#0A4D8E">Cargo</text>
+    <text x="188" y="50" font-size="76" font-family="Poppins, Arial, sans-serif" font-style="italic" font-weight="700" fill="#F7931E">Verge</text>
+    <line x1="0" y1="92" x2="90" y2="92" stroke="#848484" stroke-width="3"/>
+    <line x1="288" y1="92" x2="376" y2="92" stroke="#848484" stroke-width="3"/>
+    <text x="101" y="103" font-size="38" letter-spacing="10" font-family="Poppins, Arial, sans-serif" font-style="italic" font-weight="500" fill="#7A7A7A">LOGISTICS</text>
+  </g>
+
+  <defs>
+    <linearGradient id="cargoBlue" x1="36" y1="120" x2="144" y2="53" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0A3F78"/>
+      <stop offset="1" stop-color="#1EA7E3"/>
+    </linearGradient>
+    <linearGradient id="cargoOrange" x1="144" y1="53" x2="220" y2="120" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFD24A"/>
+      <stop offset="1" stop-color="#F7931E"/>
+    </linearGradient>
+  </defs>
+</svg>
