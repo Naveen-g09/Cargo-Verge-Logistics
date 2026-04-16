@@ -9,7 +9,7 @@ A modern, production-ready React + Tailwind logistics company website for **Carg
 - Premium hero, services, network, testimonials, and contact sections
 - Framer Motion animations and smooth scrolling
 - SEO-friendly meta and Open Graph tags
-- Working contact form integrated with EmailJS REST API
+- Working contact form integrated with EmailJS
 - Google Maps embeds for USA and Canada office locations
 
 ## Tech Stack
@@ -17,7 +17,7 @@ A modern, production-ready React + Tailwind logistics company website for **Carg
 - React (JSX)
 - Tailwind CSS
 - Framer Motion
-- EmailJS REST API (frontend email delivery)
+- EmailJS (frontend email delivery)
 - Vite
 
 ## Local Development
@@ -48,7 +48,7 @@ A modern, production-ready React + Tailwind logistics company website for **Carg
 
 ## EmailJS Setup
 
-Create an EmailJS service + template and map these template params:
+Create an EmailJS service + template and map fields:
 
 - `from_name`
 - `company_name`
