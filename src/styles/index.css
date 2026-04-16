@@ -1,0 +1,53 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-slate-50 text-slate-800 antialiased;
+}
+
+.section-shell {
+  @apply mx-auto max-w-7xl px-4 sm:px-6 lg:px-8;
+}
+
+.hero-map {
+  background-image:
+    linear-gradient(130deg, rgba(11, 60, 93, 0.95), rgba(11, 60, 93, 0.86)),
+    url('https://images.unsplash.com/photo-1564950487313-8f7b343f5f8f?auto=format&fit=crop&w=1400&q=80');
+  background-size: cover;
+  background-position: center;
+}
+
+.route-line {
+  stroke-dasharray: 8;
+  animation: pulseRoute 2.8s linear infinite;
+}
+
+@keyframes pulseRoute {
+  to {
+    stroke-dashoffset: -80;
+  }
+}
+
+.loader {
+  width: 3.2rem;
+  height: 3.2rem;
+  border-radius: 9999px;
+  border: 4px solid rgba(247, 147, 30, 0.4);
+  border-top-color: #f7931e;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
