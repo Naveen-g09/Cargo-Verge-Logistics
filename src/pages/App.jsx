@@ -103,6 +103,8 @@ export default function App() {
               Services
             </a>
           </div>
+          </div>      {/* closes max-w-6xl */}
+</section>  {/* closes HERO */}
 
         <section id="about" className="section-shell py-16 md:py-24">
           <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }}>
@@ -141,26 +143,10 @@ export default function App() {
                 <p className="mt-3 text-sm leading-6 text-slate-600">{item.text}</p>
               </motion.article>
             ))}
-          </div>
+          {/* </div> */}
         </div>
       </section>
 
-      {/* ABOUT */}
-      <section id="about" className="py-24 px-6 max-w-6xl mx-auto">
-        <h2 className="text-3xl font-semibold text-primary">About</h2>
-        <p className="mt-6 text-slate-600">
-          CargoVerge Logistics delivers reliable, scalable global logistics solutions through strategic freight coordination.
-        </p>
-
-        <div className="grid md:grid-cols-3 gap-6 mt-10">
-          {highlights.map(h => (
-            <div key={h.title} className="p-6 shadow rounded-xl">
-              <h3 className="font-semibold">{h.title}</h3>
-              <p className="text-sm mt-2">{h.text}</p>
-            </div>
-          ))}
-        </div>
-      </section>
 
       {/* SERVICES */}
       <section id="services" className="bg-slate-100 py-24 px-6">
