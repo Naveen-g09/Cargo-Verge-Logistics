@@ -193,55 +193,100 @@ export default function App() {
           </div>
         </section>
 
-         <section id="about" className="section-shell py-16 md:py-24">
+import { motion } from "framer-motion";
+import CountUp from "react-countup";
+
+<section id="about" className="section-shell py-20 md:py-28">
+  <div className="grid md:grid-cols-2 gap-12 items-center">
+
+    {/* LEFT CONTENT */}
+    <motion.div
+      variants={fadeUp}
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: true, amount: 0.2 }}
+    >
+      <h2 className="font-heading text-3xl md:text-4xl font-semibold text-primary">
+        About CargoVerge Logistics
+      </h2>
+
+      <div className="mt-6 space-y-4 text-slate-600 leading-relaxed">
+        <p>
+          CargoVerge Logistics is a forward-thinking freight forwarding and logistics company delivering reliable, efficient, and globally integrated supply chain solutions. Positioned at the intersection of precision and performance, we empower businesses to navigate international trade with confidence.
+        </p>
+
+        <p>
+          We specialize in orchestrating seamless cargo movement across air, ocean, and land networks. Every shipment is handled with strategic planning, operational transparency, and unwavering commitment to timeliness.
+        </p>
+
+        <p>
+          Through a growing network of global partners and logistics expertise, we provide scalable, end-to-end solutions—from urgent air freight to cost-efficient ocean shipping and inland coordination.
+        </p>
+
+        <p className="font-medium text-primary">
+          We don’t just move cargo—we move business forward.
+        </p>
+      </div>
+    </motion.div>
+
+    {/* RIGHT VISUAL / IMAGE */}
+    <motion.div
+      variants={fadeUp}
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: true, amount: 0.2 }}
+      className="relative"
+    >
+      <img
+        src="/assets/logistics-world.jpg"
+        alt="Global Logistics Network"
+        className="rounded-2xl shadow-xl object-cover w-full h-[400px]"
+      />
+
+      {/* Floating card */}
+      <div className="absolute -bottom-6 -left-6 bg-white p-5 rounded-xl shadow-lg border border-slate-200">
+        <p className="text-sm text-slate-500">Global Reach</p>
+        <p className="text-xl font-semibold text-primary">Worldwide Network</p>
+      </div>
+    </motion.div>
+  </div>
+
+  {/* COUNTERS */}
   <motion.div
     variants={fadeUp}
     initial="hidden"
     whileInView="show"
-    viewport={{ once: true, amount: 0.2 }}
+    viewport={{ once: true }}
+    className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6 text-center"
   >
-    <h2 className="font-heading text-3xl font-semibold text-primary">
-      About CargoVerge Logistics
-    </h2>
+    <div>
+      <h3 className="text-3xl font-bold text-primary">
+        <CountUp end={50} duration={3} />+
+      </h3>
+      <p className="text-slate-600 text-sm mt-1">Global Partners</p>
+    </div>
 
-    <div className="mt-5 max-w-4xl space-y-4 text-slate-600 leading-relaxed">
-      <p>
-        CargoVerge Logistics is a forward-thinking freight forwarding and logistics company dedicated to delivering reliable, efficient, and globally integrated supply chain solutions. Positioned at the intersection of precision and performance, we enable businesses to navigate the complexities of international trade with confidence and control.
-      </p>
+    <div>
+      <h3 className="text-3xl font-bold text-primary">
+        <CountUp end={120} duration={3} />+
+      </h3>
+      <p className="text-slate-600 text-sm mt-1">Countries Served</p>
+    </div>
 
-      <p>
-        With deep expertise in global freight coordination, we specialize in managing the seamless movement of cargo across air, ocean, and land transportation networks. Every shipment is executed with meticulous planning, operational transparency, and a strong commitment to timeliness—ensuring goods reach their destination safely and without disruption.
-      </p>
+    <div>
+      <h3 className="text-3xl font-bold text-primary">
+        <CountUp end={500} duration={3} />+
+      </h3>
+      <p className="text-slate-600 text-sm mt-1">Shipments Delivered</p>
+    </div>
 
-      <p>
-        Leveraging a growing network of trusted international partners and industry best practices, CargoVerge Logistics delivers end-to-end solutions tailored to diverse business needs. From time-sensitive air freight to cost-efficient ocean shipping, inland transportation, and integrated cargo handling, we provide a comprehensive logistics ecosystem built for scalability and reliability.
-      </p>
-
-      <p>
-        At CargoVerge Logistics, every shipment represents more than cargo—it reflects our clients’ ambitions. This drives our commitment to consistent communication, proactive problem-solving, and service excellence, empowering businesses to move faster, smarter, and further in the global marketplace.
-      </p>
+    <div>
+      <h3 className="text-3xl font-bold text-primary">
+        <CountUp end={99} duration={3} />%
+      </h3>
+      <p className="text-slate-600 text-sm mt-1">Client Satisfaction</p>
     </div>
   </motion.div>
-
-  <div className="mt-10 grid gap-5 md:grid-cols-3">
-    {highlights.map((item) => (
-      <motion.article
-        key={item.title}
-        variants={fadeUp}
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: true, amount: 0.2 }}
-        className="rounded-2xl border border-slate-200 bg-white p-6 shadow-card"
-      >
-        <h3 className="font-heading text-xl font-semibold text-primary">
-          {item.title}
-        </h3>
-        <p className="mt-3 text-sm leading-6 text-slate-600">
-          {item.text}
-        </p>
-      </motion.article>
-    ))}
-  </div>
 </section>
 
         <section id="services" className="bg-slate-100 py-16 md:py-24">
