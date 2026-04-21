@@ -109,7 +109,7 @@ export default function App() {
       <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/95 backdrop-blur">
         <div className="section-shell flex h-20 items-center justify-between">
           <a href="#home" className="flex items-center gap-3">
-            <img src="/logo.svg" alt="CargoVerge Logistics logo" className="h-12 w-12" loading="lazy" />
+            <img src="/logo.png" alt="CargoVerge Logistics logo" className="h-12 w-12" loading="lazy" />
             <div>
               <p className="font-heading text-lg font-semibold text-primary">CargoVerge Logistics</p>
               <p className="text-xs text-slate-500">At the Edge of Global Trade.</p>
@@ -458,7 +458,7 @@ import CountUp from "react-countup";
         <div className="section-shell grid gap-8 md:grid-cols-4">
           <div>
             <div className="flex items-center gap-3">
-              <img src="/logo.svg" alt="CargoVerge Logistics logo" className="h-12 w-12" loading="lazy" />
+              <img src="/logo.png" alt="CargoVerge Logistics logo" className="h-12 w-12" loading="lazy" />
               <div>
                 <p className="font-heading text-lg font-semibold text-white">CargoVerge Logistics</p>
                 <p className="text-xs text-slate-400">At the Edge of Global Trade.</p>
