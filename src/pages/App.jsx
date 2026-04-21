@@ -211,7 +211,6 @@ export default function App() {
       <p>
         Leveraging a growing network of trusted international partners and industry best practices, CargoVerge Logistics delivers end-to-end solutions tailored to diverse business needs. From time-sensitive air freight to cost-efficient ocean shipping, inland transportation, and integrated cargo handling, we provide a comprehensive logistics ecosystem built for scalability and reliability.
       </p>
-
       <p>
         At CargoVerge Logistics, every shipment represents more than cargo—it reflects our clients’ ambitions. This drives our commitment to consistent communication, proactive problem-solving, and service excellence, empowering businesses to move faster, smarter, and further in the global marketplace.
       </p>
