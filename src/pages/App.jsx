@@ -36,6 +36,7 @@ const initialForm = {
   company: '',
   phone: '',
   email: '',
+  requirement: '',
 };
 
 export default function App() {
@@ -86,7 +87,7 @@ const onSubmit = async (event) => {
         company_name: form.company || 'N/A',
         contact_number: form.phone,
         from_email: form.email,
-        message: `New inquiry from ${form.name}`,
+        message: form.requirement,
       }
     );
 
@@ -373,10 +374,33 @@ const onSubmit = async (event) => {
                   {errors.email && <p className="mt-1 text-xs text-red-600">{errors.email}</p>}
                 </div>
 
-                <button type="submit" className="inline-flex items-center gap-2 rounded-lg bg-primary px-5 py-3 text-sm font-semibold text-white transition hover:bg-primary/95">
-                  Send Inquiry
-                  <ArrowRight size={16} />
-                </button>
+                <div>
+  <label htmlFor="requirement" className="mb-1 block text-sm font-medium text-slate-700">
+    Requirement / Message *
+  </label>
+  <textarea
+    id="requirement"
+    rows="4"
+    value={form.requirement || ''}
+    onChange={(e) =>
+      setForm((p) => ({ ...p, requirement: e.target.value }))
+    }
+    className="w-full rounded-lg border border-slate-300 px-4 py-2.5 text-sm outline-none transition focus:border-primary"
+    placeholder="Describe your logistics requirement..."
+  />
+  {errors.requirement && (
+    <p className="mt-1 text-xs text-red-600">{errors.requirement}</p>
+  )}
+</div>
+
+                <button
+  type="submit"
+  disabled={status.type === 'loading'}
+  className="inline-flex items-center gap-2 rounded-lg bg-primary px-5 py-3 text-sm font-semibold text-white transition hover:bg-primary/95 disabled:opacity-60"
+>
+  {status.type === 'loading' ? 'Sending...' : 'Send Inquiry'}
+  <ArrowRight size={16} />
+</button>
 
                 {status.message && (
                   <p className={`text-sm ${status.type === 'success' ? 'text-emerald-600' : 'text-red-600'}`}>
