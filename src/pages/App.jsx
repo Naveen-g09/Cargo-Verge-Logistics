@@ -10,7 +10,10 @@ import {
   Phone,
   Mail,
   MapPin,
+  Facebook,
+  MessageCircle,
 } from 'lucide-react';
+
 import {
   navItems,
   serviceCards,
@@ -43,6 +46,10 @@ export default function App() {
   const [status, setStatus] = useState({ type: '', message: '' });
 
   useEffect(() => {
+  emailjs.init(import.meta.env.VITE_EMAILJS_PUBLIC_KEY);
+}, []);
+
+  useEffect(() => {
     const timer = setTimeout(() => setLoading(false), 1100);
     return () => clearTimeout(timer);
   }, []);
@@ -61,38 +68,46 @@ export default function App() {
     return nextErrors;
   };
 
-  const onSubmit = async (event) => {
-    event.preventDefault();
-    const nextErrors = validate();
-    setErrors(nextErrors);
-    if (Object.keys(nextErrors).length) return;
+const onSubmit = async (event) => {
+  event.preventDefault();
 
-    try {
-      await emailjs.send(
-        import.meta.env.VITE_EMAILJS_SERVICE_ID,
-        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
-        {
-          from_name: form.name,
-          company_name: form.company || 'N/A',
-          contact_number: form.phone,
-          from_email: form.email,
-          to_email: 'info@cargovergelogistics.com',
-          message: `New quote/contact request received from ${form.name}.`,
-        },
-        import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
-      );
+  const nextErrors = validate();
+  setErrors(nextErrors);
+  if (Object.keys(nextErrors).length) return;
 
-      setStatus({ type: 'success', message: 'Message sent successfully. We will contact you shortly.' });
-      setForm(initialForm);
-      setErrors({});
-    } catch (error) {
-      setStatus({
-        type: 'error',
-        message: 'Unable to send right now. Please try again shortly or email info@cargovergelogistics.com.',
-      });
-    }
-  };
+  setStatus({ type: 'loading', message: 'Sending...' });
 
+  try {
+    const response = await emailjs.send(
+      import.meta.env.VITE_EMAILJS_SERVICE_ID,
+      import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+      {
+        from_name: form.name,
+        company_name: form.company || 'N/A',
+        contact_number: form.phone,
+        from_email: form.email,
+        message: `New inquiry from ${form.name}`,
+      }
+    );
+
+    console.log("SUCCESS:", response);
+
+    setStatus({
+      type: 'success',
+      message: 'Message sent successfully. We will contact you shortly.',
+    });
+
+    setForm(initialForm);
+    setErrors({});
+  } catch (error) {
+    console.error("EMAILJS ERROR:", error);
+
+    setStatus({
+      type: 'error',
+      message: 'Failed to send. Please try again or contact directly.',
+    });
+  }
+};
   if (loading) {
     return (
       <div className="fixed inset-0 grid place-items-center bg-primary">
@@ -193,29 +208,56 @@ export default function App() {
           </div>
         </section>
 
-        <section id="about" className="section-shell py-16 md:py-24">
-          <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }}>
-            <h2 className="font-heading text-3xl font-semibold text-primary">About CargoVerge Logistics</h2>
-            <p className="mt-5 max-w-4xl text-slate-600">
-              CargoVerge Logistics is a professional freight forwarding company providing reliable global logistics solutions. We specialize in coordinating international cargo movements through air, ocean, and land transportation, ensuring smooth and efficient delivery across global markets.
-            </p>
-          </motion.div>
-          <div className="mt-10 grid gap-5 md:grid-cols-3">
-            {highlights.map((item) => (
-              <motion.article
-                key={item.title}
-                variants={fadeUp}
-                initial="hidden"
-                whileInView="show"
-                viewport={{ once: true, amount: 0.2 }}
-                className="rounded-2xl border border-slate-200 bg-white p-6 shadow-card"
-              >
-                <h3 className="font-heading text-xl font-semibold text-primary">{item.title}</h3>
-                <p className="mt-3 text-sm leading-6 text-slate-600">{item.text}</p>
-              </motion.article>
-            ))}
-          </div>
-        </section>
+       <section id="about" className="section-shell py-16 md:py-24">
+  <motion.div
+    variants={fadeUp}
+    initial="hidden"
+    whileInView="show"
+    viewport={{ once: true, amount: 0.2 }}
+  >
+    <h2 className="font-heading text-3xl font-semibold text-primary">
+      About CargoVerge Logistics
+    </h2>
+
+    <div className="mt-5 max-w-4xl space-y-4 text-slate-600 leading-relaxed">
+      <p>
+        CargoVerge Logistics is a forward-thinking freight forwarding and logistics company dedicated to delivering reliable, efficient, and globally integrated supply chain solutions. Positioned at the intersection of precision and performance, we enable businesses to navigate the complexities of international trade with confidence and control.
+      </p>
+
+      <p>
+        With deep expertise in global freight coordination, we specialize in managing the seamless movement of cargo across air, ocean, and land transportation networks. Every shipment is executed with meticulous planning, operational transparency, and a strong commitment to timeliness—ensuring goods reach their destination safely and without disruption.
+      </p>
+
+      <p>
+        Leveraging a growing network of trusted international partners and industry best practices, CargoVerge Logistics delivers end-to-end solutions tailored to diverse business needs. From time-sensitive air freight to cost-efficient ocean shipping, inland transportation, and integrated cargo handling, we provide a comprehensive logistics ecosystem built for scalability and reliability.
+      </p>
+
+      <p>
+        At CargoVerge Logistics, every shipment represents more than cargo—it reflects our clients’ ambitions. This drives our commitment to consistent communication, proactive problem-solving, and service excellence, empowering businesses to move faster, smarter, and further in the global marketplace.
+      </p>
+    </div>
+  </motion.div>
+
+  <div className="mt-10 grid gap-5 md:grid-cols-3">
+    {highlights.map((item) => (
+      <motion.article
+        key={item.title}
+        variants={fadeUp}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.2 }}
+        className="rounded-2xl border border-slate-200 bg-white p-6 shadow-card"
+      >
+        <h3 className="font-heading text-xl font-semibold text-primary">
+          {item.title}
+        </h3>
+        <p className="mt-3 text-sm leading-6 text-slate-600">
+          {item.text}
+        </p>
+      </motion.article>
+    ))}
+  </div>
+</section>
 
         <section id="services" className="bg-slate-100 py-16 md:py-24">
           <div className="section-shell">
@@ -348,19 +390,52 @@ export default function App() {
               <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-card">
                 <h3 className="font-heading text-xl font-semibold text-primary">Contact Info</h3>
                 <ul className="mt-4 space-y-3 text-sm text-slate-600">
-                  <li className="flex items-start gap-3"><Phone className="mt-0.5 text-secondary" size={16} /> +1 289-642-1947</li>
+                 <li className="flex items-start gap-3">
+  <MessageCircle className="mt-0.5 text-secondary" size={16} />
+  <a
+    href="https://wa.me/12896421947"
+    target="_blank"
+    rel="noreferrer"
+    className="hover:text-primary"
+  >
+    +1 289-642-1947
+  </a>
+</li>
                   <li className="flex items-start gap-3"><Mail className="mt-0.5 text-secondary" size={16} /> info@cargovergelogistics.com</li>
                   <li className="flex items-start gap-3"><MapPin className="mt-0.5 text-secondary" size={16} /> USA: 16192 Coastal Highway, Lewes, Delaware 19958</li>
                   <li className="flex items-start gap-3"><MapPin className="mt-0.5 text-secondary" size={16} /> Canada: 15093 Danby Road, Georgetown Ontario, L7G 0B1</li>
                 </ul>
                 <div className="mt-6 flex gap-3">
-                  <a aria-label="LinkedIn" href="https://www.linkedin.com/in/cargoverge-logistics-8256593b8" target="_blank" rel="noreferrer" className="rounded-full border border-slate-200 p-2.5 text-primary transition hover:border-primary hover:bg-primary hover:text-white">
-                    <Linkedin size={18} />
-                  </a>
-                  <a aria-label="Instagram" href="https://www.instagram.com/cargoverge" target="_blank" rel="noreferrer" className="rounded-full border border-slate-200 p-2.5 text-primary transition hover:border-primary hover:bg-primary hover:text-white">
-                    <Instagram size={18} />
-                  </a>
-                </div>
+  <a
+    aria-label="LinkedIn"
+    href="https://www.linkedin.com/in/cargoverge-logistics-8256593b8"
+    target="_blank"
+    rel="noreferrer"
+    className="rounded-full border border-slate-200 p-2.5 text-primary transition hover:border-primary hover:bg-primary hover:text-white"
+  >
+    <Linkedin size={18} />
+  </a>
+
+  <a
+    aria-label="Instagram"
+    href="https://www.instagram.com/cargoverge"
+    target="_blank"
+    rel="noreferrer"
+    className="rounded-full border border-slate-200 p-2.5 text-primary transition hover:border-primary hover:bg-primary hover:text-white"
+  >
+    <Instagram size={18} />
+  </a>
+
+  <a
+    aria-label="Facebook"
+    href="https://www.facebook.com"
+    target="_blank"
+    rel="noreferrer"
+    className="rounded-full border border-slate-200 p-2.5 text-primary transition hover:border-primary hover:bg-primary hover:text-white"
+  >
+    <Facebook size={18} />
+  </a>
+</div>
               </div>
 
               <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-card">
