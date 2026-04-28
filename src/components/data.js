@@ -14,6 +14,15 @@ import {
   Route,
 } from 'lucide-react';
 
+import airFreightImg from '../assets/Air-Freight.webp';
+import oceanFreightImg from '../assets/ocean-freight.webp';
+import landTransportImg from '../assets/Land-Transport.webp';
+import railTransportImg from '../assets/Rail-Transport.webp';
+import warehouseImg from '../assets/warehouse-freight.webp';
+import vehicleImg from '../assets/vehicle-import-export.webp';
+import cargoHandlingImg from '../assets/cargo-handling.webp';
+import logisticsImg from '../assets/Logistics-Services.webp';
+
 export const navItems = [
   { label: 'Home', id: 'home' },
   { label: 'About', id: 'about' },
@@ -25,14 +34,14 @@ export const navItems = [
 ];
 
 export const serviceCards = [
-  { icon: Plane, title: 'Air Freight', description: 'Time-critical air freight solutions with global airline partnerships for rapid international cargo movement.' },
-  { icon: Ship, title: 'Ocean Freight', description: 'Reliable FCL and LCL ocean freight shipping with port-to-port and door delivery options.' },
-  { icon: Truck, title: 'Land Transport', description: 'Cross-border and domestic trucking designed for safe, compliant, and on-time deliveries.' },
-  { icon: Train, title: 'Rail Transport', description: 'Cost-effective multimodal rail corridors for large-scale cargo across key trade lanes.' },
-  { icon: Warehouse, title: 'Warehousing', description: 'Secure warehousing, inventory visibility, and fulfillment support for supply chain continuity.' },
-  { icon: Car, title: 'Vehicle Export & Import', description: 'End-to-end vehicle shipping, customs facilitation, and status coordination across continents.' },
-  { icon: Package, title: 'Cargo Handling', description: 'Professional cargo handling, consolidation, and documentation for smooth cargo transfers.' },
-  { icon: Globe, title: 'Logistics Services', description: 'Integrated international cargo services and supply chain solutions tailored to your business.' },
+  { image: airFreightImg, title: 'Air Freight', description: 'Time-critical air freight solutions with global airline partnerships for rapid international cargo movement.' },
+  { image: oceanFreightImg, title: 'Ocean Freight', description: 'Reliable FCL and LCL ocean freight shipping with port-to-port and door delivery options.' },
+  { image: landTransportImg, title: 'Land Transport', description: 'Cross-border and domestic trucking designed for safe, compliant, and on-time deliveries.' },
+  { image: railTransportImg, title: 'Rail Transport', description: 'Cost-effective multimodal rail corridors for large-scale cargo across key trade lanes.' },
+  { image: warehouseImg, title: 'Warehousing', description: 'Secure warehousing, inventory visibility, and fulfillment support for supply chain continuity.' },
+  { image: vehicleImg, title: 'Vehicle Export & Import', description: 'End-to-end vehicle shipping, customs facilitation, and status coordination across continents.' },
+  { image: cargoHandlingImg, title: 'Cargo Handling', description: 'Professional cargo handling, consolidation, and documentation for smooth cargo transfers.' },
+  { image: logisticsImg, title: 'Logistics Services', description: 'Integrated international cargo services and supply chain solutions tailored to your business.' },
 ];
 
 export const reasons = [

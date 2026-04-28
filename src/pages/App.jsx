@@ -13,7 +13,7 @@ import {
   Facebook,
   MessageCircle,
 } from 'lucide-react';
-
+import heroImg from '../assets/hero.png';
 import {
   navItems,
   serviceCards,
@@ -171,42 +171,54 @@ const onSubmit = async (event) => {
       <main>
         <section id="home" className="hero-map relative isolate">
           <div className="absolute inset-0 -z-10 bg-grid bg-[size:16px_16px] opacity-20" />
-          <div className="section-shell py-20 md:py-28">
-            <motion.div
-              className="max-w-3xl text-white"
-              variants={fadeUp}
-              initial="hidden"
-              animate="show"
-              transition={{ duration: 0.6 }}
-            >
-              <p className="mb-3 inline-flex rounded-full bg-white/15 px-4 py-2 text-xs uppercase tracking-[0.2em]">
-                Premium Global Freight Partner
-              </p>
-              <h1 className="font-heading text-4xl font-semibold leading-tight md:text-5xl">
-                Connecting Businesses Worldwide Through Reliable Logistics
-              </h1>
-              <p className="mt-6 max-w-2xl text-base text-slate-100 md:text-lg">
-                CargoVerge Logistics delivers freight forwarding services across air, ocean, land, and warehousing so your business moves faster in global markets.
-              </p>
-              <div className="mt-8 flex flex-wrap gap-4">
-                <a href="#contact" className="rounded-lg bg-secondary px-6 py-3 text-sm font-semibold text-slate-900 transition hover:brightness-95">
-                  Get a Quote
-                </a>
-                <a href="#services" className="rounded-lg border border-white/60 px-6 py-3 text-sm font-semibold text-white transition hover:bg-white/10">
-                  Our Services
-                </a>
-              </div>
-            </motion.div>
+          <div className="section-shell py-16 md:py-24 lg:py-28 grid lg:grid-cols-2 gap-10 items-center">
+  
+  {/* LEFT CONTENT */}
+  <motion.div
+    className="max-w-3xl text-white order-2 lg:order-1"
+    variants={fadeUp}
+    initial="hidden"
+    animate="show"
+    transition={{ duration: 0.6 }}
+  >
+    <p className="mb-3 inline-flex rounded-full bg-white/15 px-4 py-2 text-xs uppercase tracking-[0.2em]">
+      Premium Global Freight Partner
+    </p>
 
-            <div className="mt-14 grid gap-4 sm:grid-cols-3">
-              {stats.map((stat) => (
-                <div key={stat.label} className="rounded-xl bg-white/10 p-4 text-white backdrop-blur">
-                  <p className="text-3xl font-bold">{stat.value}</p>
-                  <p className="text-sm text-slate-200">{stat.label}</p>
-                </div>
-              ))}
-            </div>
-          </div>
+    <h1 className="font-heading text-3xl sm:text-4xl md:text-5xl font-semibold leading-tight">
+      Connecting Businesses Worldwide Through Reliable Logistics
+    </h1>
+
+    <p className="mt-6 max-w-2xl text-base text-slate-100 md:text-lg">
+      CargoVerge Logistics delivers freight forwarding services across air, ocean, land, and warehousing so your business moves faster in global markets.
+    </p>
+
+    <div className="mt-8 flex flex-col sm:flex-row gap-4">
+      <a href="#contact" className="rounded-lg bg-secondary px-6 py-3 text-sm font-semibold text-slate-900 hover:brightness-95">
+        Get a Quote
+      </a>
+      <a href="#services" className="rounded-lg border border-white/60 px-6 py-3 text-sm font-semibold text-white hover:bg-white/10">
+        Our Services
+      </a>
+    </div>
+  </motion.div>
+
+  {/* RIGHT IMAGE */}
+  <motion.div
+  variants={fadeUp}
+  initial="hidden"
+  animate="show"
+  transition={{ duration: 0.8 }}
+  className="flex justify-center order-1 lg:order-2"
+>
+  <img
+    src={heroImg}
+    alt="Global logistics"
+    className="w-full max-w-md sm:max-w-lg lg:max-w-xl rounded-xl shadow-2xl"
+  />
+</motion.div>
+
+</div>
         </section>
 
        <section id="about" className="section-shell py-16 md:py-24">
@@ -267,18 +279,31 @@ const onSubmit = async (event) => {
               Scalable international cargo services built for speed, compliance, and supply chain performance.
             </p>
             <div className="mt-10 grid gap-5 sm:grid-cols-2 xl:grid-cols-4">
-              {serviceCards.map(({ icon: Icon, title, description }) => (
+              {serviceCards.map(({ image, title, description }) => (
                 <motion.article
-                  key={title}
-                  whileHover={{ y: -7 }}
-                  className="group rounded-2xl border border-slate-200 bg-white p-6 shadow-card transition"
-                >
-                  <div className="inline-flex rounded-xl bg-primary/10 p-3 text-primary transition group-hover:bg-secondary/20 group-hover:text-secondary">
-                    <Icon size={24} />
-                  </div>
-                  <h3 className="mt-4 font-heading text-lg font-semibold text-primary">{title}</h3>
-                  <p className="mt-2 text-sm leading-6 text-slate-600">{description}</p>
-                </motion.article>
+  key={title}
+  whileHover={{ y: -7 }}
+  className="group rounded-2xl border border-slate-200 bg-white shadow-card transition overflow-hidden"
+>
+  {/* IMAGE */}
+  <div className="overflow-hidden">
+    <img
+      src={image}
+      alt={title}
+      className="w-full h-44 object-cover transition duration-500 group-hover:scale-105"
+    />
+  </div>
+
+  {/* CONTENT */}
+  <div className="p-6">
+    <h3 className="font-heading text-lg font-semibold text-primary">
+      {title}
+    </h3>
+    <p className="mt-2 text-sm leading-6 text-slate-600">
+      {description}
+    </p>
+  </div>
+</motion.article>
               ))}
             </div>
           </div>
