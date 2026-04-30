@@ -70,7 +70,7 @@ useEffect(() => {
   }, 3000); // change every 3 seconds
 
   return () => clearInterval(interval);
-}, []);
+}, [heroImages.length]);
 
   const year = useMemo(() => new Date().getFullYear(), []);
 
