@@ -13,7 +13,12 @@ import {
   Facebook,
   MessageCircle,
 } from 'lucide-react';
-import heroImg from '../assets/hero.png';
+import hero0 from '../assets/hero.png';
+import hero1 from '../assets/hero-1.webp';
+import hero2 from '../assets/hero-2.webp';
+import hero3 from '../assets/hero-3.webp';
+import hero4 from '../assets/hero-4.webp';
+import hero5 from '../assets/hero-5.webp';
 import {
   navItems,
   serviceCards,
@@ -30,6 +35,7 @@ const fadeUp = {
   hidden: { opacity: 0, y: 22 },
   show: { opacity: 1, y: 0 },
 };
+
 
 const initialForm = {
   name: '',
@@ -54,6 +60,17 @@ export default function App() {
     const timer = setTimeout(() => setLoading(false), 1100);
     return () => clearTimeout(timer);
   }, []);
+
+  const heroImages = [hero0, hero1, hero2, hero3, hero4, hero5];
+
+const [currentHero, setCurrentHero] = useState(0);
+useEffect(() => {
+  const interval = setInterval(() => {
+    setCurrentHero((prev) => (prev + 1) % heroImages.length);
+  }, 3000); // change every 3 seconds
+
+  return () => clearInterval(interval);
+}, []);
 
   const year = useMemo(() => new Date().getFullYear(), []);
 
@@ -211,11 +228,15 @@ const onSubmit = async (event) => {
   transition={{ duration: 0.8 }}
   className="flex justify-center order-1 lg:order-2"
 >
-  <img
-    src={heroImg}
-    alt="Global logistics"
-    className="w-full max-w-md sm:max-w-lg lg:max-w-xl rounded-xl shadow-2xl"
-  />
+  <motion.img
+  key={currentHero}
+  src={heroImages[currentHero]}
+  alt="Global logistics"
+  className="w-full max-w-md sm:max-w-lg lg:max-w-xl rounded-xl shadow-2xl"
+  animate={{ opacity: 1, scale: 1.05 }}
+initial={{ opacity: 0, scale: 1 }}
+  transition={{ duration: 0.8 }}
+/>
 </motion.div>
 
 </div>
