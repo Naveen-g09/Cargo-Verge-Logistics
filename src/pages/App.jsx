@@ -52,6 +52,14 @@ export default function App() {
   const [errors, setErrors] = useState({});
   const [status, setStatus] = useState({ type: '', message: '' });
 
+  const [showTopBanner, setShowTopBanner] = useState(true);
+
+useEffect(() => {
+  const hidden = localStorage.getItem("hideTopBanner");
+  if (hidden === "true") {
+    setShowTopBanner(false);
+  }
+}, []);
   useEffect(() => {
   emailjs.init(import.meta.env.VITE_EMAILJS_PUBLIC_KEY);
 }, []);
@@ -193,7 +201,28 @@ const onSubmit = async (event) => {
           </div>
         )}
       </header>
+        {showTopBanner && (
+  <div className="relative w-full bg-white border-b border-slate-200">
+    
+    {/* IMAGE BANNER */}
+    <img
+      src="/usa-canada-banner.png" // put your image in public folder
+      alt="USA & Canada Freight"
+      className="w-full h-auto object-cover"
+    />
 
+    {/* CLOSE BUTTON */}
+    <button
+      onClick={() => {
+        setShowTopBanner(false);
+        localStorage.setItem("hideTopBanner", "true");
+      }}
+      className="absolute top-2 right-3 bg-black/60 text-white rounded-full w-8 h-8 flex items-center justify-center hover:bg-black"
+    >
+      ×
+    </button>
+  </div>
+)}
       <main>
 <section id="home" className="relative isolate bg-white">
   
@@ -217,7 +246,9 @@ const onSubmit = async (event) => {
     <p className="mb-3 inline-flex rounded-full bg-white/15 px-4 py-2 text-xs uppercase tracking-[0.2em]">
       Premium Global Freight Partner
     </p>
-
+    <p className="mb-4 inline-block bg-secondary text-white px-4 py-2 rounded-full text-xs font-semibold shadow-md">
+  USA & Canada Freight Specialist
+</p>
     <h1 className="font-heading text-3xl sm:text-4xl md:text-5xl font-semibold leading-tight">
       Connecting Businesses Worldwide Through Reliable Logistics
     </h1>
