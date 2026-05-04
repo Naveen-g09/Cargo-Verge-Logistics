@@ -57,7 +57,7 @@ export default function App() {
 useEffect(() => {
   const hidden = localStorage.getItem("hideTopBanner");
   if (hidden === "true") {
-    setShowTopBanner(false);
+    setShowTopBanner(true);
   }
 }, []);
   useEffect(() => {
@@ -202,7 +202,7 @@ const onSubmit = async (event) => {
         )}
       </header>
         {showTopBanner && (
-  <div className="relative w-full bg-white border-b border-slate-200">
+  <div className="relative w-full">
     
     {/* IMAGE BANNER */}
     <img
