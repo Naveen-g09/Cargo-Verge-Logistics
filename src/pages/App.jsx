@@ -55,11 +55,13 @@ export default function App() {
   const [showTopBanner, setShowTopBanner] = useState(true);
 
 useEffect(() => {
-  const hidden = localStorage.getItem("hideTopBanner");
-  if (hidden === "true") {
-    setShowTopBanner(true);
-  }
+  const timer = setTimeout(() => {
+    setShowTopBanner(false);
+  }, 10000); // 10 seconds
+
+  return () => clearTimeout(timer);
 }, []);
+
   useEffect(() => {
   emailjs.init(import.meta.env.VITE_EMAILJS_PUBLIC_KEY);
 }, []);
@@ -136,12 +138,28 @@ const onSubmit = async (event) => {
 };
   if (loading) {
     return (
-      <div className="fixed inset-0 grid place-items-center bg-primary">
-        <div className="text-center text-slate-800">
-          <div className="loader mx-auto mb-4" />
-          <p className="font-heading text-lg">Loading CargoVerge Logistics</p>
-        </div>
-      </div>
+      <div className="fixed inset-0 flex flex-col items-center justify-center bg-gradient-to-br from-primary to-secondary text-white">
+  
+  {/* LOGO */}
+  <img
+    src="/logo.svg"
+    alt="CargoVerge Logistics"
+    className="w-24 h-24 mb-6 animate-pulse"
+  />
+
+  {/* TEXT */}
+  <p className="font-heading text-xl font-semibold tracking-wide">
+    CargoVerge Logistics
+  </p>
+
+  {/* SUBTEXT */}
+  <p className="text-sm mt-2 opacity-80">
+    Powering Global Freight
+  </p>
+
+  {/* LOADER */}
+  <div className="mt-6 w-10 h-10 border-4 border-white/30 border-t-white rounded-full animate-spin" />
+</div>
     );
   }
 
@@ -157,7 +175,7 @@ const onSubmit = async (event) => {
 />
 
   <div className="leading-tight">
-    <p className="font-heading text-lg sm:text-xl font-semibold text-primary">
+    <p className="font-heading text-xl sm:text-2xl font-bold text-primary tracking-tight group-hover:text-secondary transition">
       CargoVerge Logistics
     </p>
     <p className="text-xs text-slate-500 transition group-hover:text-slate-600">
@@ -201,27 +219,20 @@ const onSubmit = async (event) => {
           </div>
         )}
       </header>
-        {showTopBanner && (
-  <div className="relative w-full">
-    
-    {/* IMAGE BANNER */}
+{showTopBanner && (
+  <motion.div
+    initial={{ y: -80, opacity: 0 }}
+    animate={{ y: 0, opacity: 1 }}
+    exit={{ y: -80, opacity: 0 }}
+    transition={{ duration: 0.5 }}
+    className="relative w-full"
+  >
     <img
-      src="/usa-canada-banner.png" // put your image in public folder
+      src="/usa-canada-banner.png"
       alt="USA & Canada Freight"
-      className="w-full h-auto object-cover"
+      className="w-full h-auto object-contain"
     />
-
-    {/* CLOSE BUTTON */}
-    <button
-      onClick={() => {
-        setShowTopBanner(false);
-        localStorage.setItem("hideTopBanner", "true");
-      }}
-      className="absolute top-2 right-3 bg-black/60 text-white rounded-full w-8 h-8 flex items-center justify-center hover:bg-black"
-    >
-      ×
-    </button>
-  </div>
+  </motion.div>
 )}
       <main>
 <section id="home" className="relative isolate bg-white">
