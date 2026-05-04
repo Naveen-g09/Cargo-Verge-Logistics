@@ -140,11 +140,15 @@ const onSubmit = async (event) => {
   return (
     <div className="overflow-x-hidden">
       <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/95 backdrop-blur">
-        <div className="section-shell flex h-20 items-center justify-between">
-          <a href="#home" className="flex items-center gap-3">
-            <img src="/logo.svg" alt="CargoVerge Logistics logo" className="h-12 w-12" loading="lazy" />
+        <div className="section-shell flex h-24 items-center justify-between">
+          <a href="#home" className="flex items-center gap-4">
+            <img
+  src="/logo.svg"
+  alt="CargoVerge Logistics logo"
+  className="h-16 w-16 sm:h-20 sm:w-20 object-contain"
+/>
             <div>
-              <p className="font-heading text-lg font-semibold text-primary">CargoVerge Logistics</p>
+              <p className="font-heading text-base sm:text-lg font-semibold text-primary">CargoVerge Logistics</p>
               <p className="text-xs text-slate-500">At the Edge of Global Trade.</p>
             </div>
           </a>
@@ -220,24 +224,35 @@ const onSubmit = async (event) => {
     </div>
   </motion.div>
 
-  {/* RIGHT IMAGE */}
-  <motion.div
-  variants={fadeUp}
-  initial="hidden"
-  animate="show"
-  transition={{ duration: 0.8 }}
-  className="flex justify-center order-1 lg:order-2"
->
-  <motion.img
-  key={currentHero}
-  src={heroImages[currentHero]}
-  alt="Global logistics"
-  className="w-full max-w-md sm:max-w-lg lg:max-w-xl rounded-xl shadow-2xl"
-  animate={{ opacity: 1, scale: 1.05 }}
-initial={{ opacity: 0, scale: 1 }}
-  transition={{ duration: 0.8 }}
-/>
-</motion.div>
+  <div className="flex flex-col items-center">
+  
+  <div className="w-full max-w-md sm:max-w-lg lg:max-w-xl aspect-[4/3]">
+    <motion.img
+      src={heroImages[currentHero]}
+      alt="Global logistics"
+      className="w-full h-full object-cover rounded-xl shadow-2xl"
+      animate={{ opacity: 1 }}
+      initial={{ opacity: 0 }}
+      transition={{ duration: 0.8 }}
+    />
+  </div>
+
+  {/* DOTS */}
+  <div className="flex justify-center mt-4 gap-2">
+    {heroImages.map((_, index) => (
+      <button
+        key={index}
+        onClick={() => setCurrentHero(index)}
+        className={`h-2.5 w-2.5 rounded-full transition ${
+          currentHero === index
+            ? 'bg-white scale-125'
+            : 'bg-white/40'
+        }`}
+      />
+    ))}
+  </div>
+
+</div>
 
 </div>
         </section>
@@ -531,7 +546,11 @@ initial={{ opacity: 0, scale: 1 }}
         <div className="section-shell grid gap-8 md:grid-cols-4">
           <div>
             <div className="flex items-center gap-3">
-              <img src="/logo.svg" alt="CargoVerge Logistics logo" className="h-12 w-12" loading="lazy" />
+<img
+  src="/logo.svg"
+  alt="CargoVerge Logistics logo"
+  className="h-16 w-16 sm:h-20 sm:w-20 object-contain"
+/>
               <div>
                 <p className="font-heading text-lg font-semibold text-white">CargoVerge Logistics</p>
                 <p className="text-xs text-slate-400">At the Edge of Global Trade.</p>
