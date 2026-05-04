@@ -147,17 +147,17 @@ const onSubmit = async (event) => {
 
   return (
     <div className="overflow-x-hidden">
-      <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/95 backdrop-blur">
-        <div className="section-shell flex h-24 items-center justify-between">
+      <header className="sticky top-0 z-50 border-b border-slate-200 bg-white">
+        <div className="section-shell flex h-28 items-center justify-between">
           <a href="#home" className="flex items-center gap-4 group">
   <img
     src="/logo.svg"
     alt="CargoVerge Logistics logo"
-    className="h-16 w-16 sm:h-20 sm:w-20 object-contain"
-  />
+    className="h-20 w-20 sm:h-24 sm:w-24 lg:h-28 lg:w-28 object-contain transition-transform duration-300 group-hover:scale-105"
+/>
 
-  <div>
-    <p className="font-heading text-base sm:text-lg font-semibold text-primary transition group-hover:text-secondary">
+  <div className="leading-tight">
+    <p className="font-heading text-lg sm:text-xl font-semibold text-primary">
       CargoVerge Logistics
     </p>
     <p className="text-xs text-slate-500 transition group-hover:text-slate-600">
