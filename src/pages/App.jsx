@@ -142,7 +142,7 @@ const onSubmit = async (event) => {
   
   {/* LOGO */}
   <img
-    src="/logo.svg"
+    src="/logo.png"
     alt="CargoVerge Logistics"
     className="w-24 h-24 mb-6 animate-pulse"
   />
@@ -169,7 +169,7 @@ const onSubmit = async (event) => {
         <div className="section-shell flex h-28 items-center justify-between">
           <a href="#home" className="flex items-center gap-4 group">
   <img
-    src="/logo.svg"
+    src="/logo.png"
     alt="CargoVerge Logistics logo"
     className="h-20 w-20 sm:h-24 sm:w-24 lg:h-28 lg:w-28 object-contain transition-transform duration-300 group-hover:scale-105"
 />
@@ -242,7 +242,7 @@ const onSubmit = async (event) => {
 
   {/* LOGO WATERMARK */}
   <div className="absolute inset-0 -z-10 flex items-center justify-center opacity-[0.04] pointer-events-none">
-    <img src="/logo.svg" className="w-[400px] object-contain" />
+    <img src="/logo.png" className="w-[400px] object-contain" />
   </div>
   
 <div className="section-shell relative z-10 py-16 md:py-24 lg:py-28 grid lg:grid-cols-2 gap-10 items-center">
@@ -601,7 +601,7 @@ const onSubmit = async (event) => {
           <div>
             <div className="flex items-center gap-3">
 <img
-  src="/logo.svg"
+  src="/logo.png"
   alt="CargoVerge Logistics logo"
   className="h-16 w-16 sm:h-20 sm:w-20 object-contain"
 />
