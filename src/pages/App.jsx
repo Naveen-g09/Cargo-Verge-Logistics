@@ -129,7 +129,7 @@ const onSubmit = async (event) => {
   if (loading) {
     return (
       <div className="fixed inset-0 grid place-items-center bg-primary">
-        <div className="text-center text-white">
+        <div className="text-center text-slate-800">
           <div className="loader mx-auto mb-4" />
           <p className="font-heading text-lg">Loading CargoVerge Logistics</p>
         </div>
@@ -141,21 +141,26 @@ const onSubmit = async (event) => {
     <div className="overflow-x-hidden">
       <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/95 backdrop-blur">
         <div className="section-shell flex h-24 items-center justify-between">
-          <a href="#home" className="flex items-center gap-4">
-            <img
-  src="/logo.svg"
-  alt="CargoVerge Logistics logo"
-  className="h-16 w-16 sm:h-20 sm:w-20 object-contain"
-/>
-            <div>
-              <p className="font-heading text-base sm:text-lg font-semibold text-primary">CargoVerge Logistics</p>
-              <p className="text-xs text-slate-500">At the Edge of Global Trade.</p>
-            </div>
-          </a>
+          <a href="#home" className="flex items-center gap-4 group">
+  <img
+    src="/logo.svg"
+    alt="CargoVerge Logistics logo"
+    className="h-16 w-16 sm:h-20 sm:w-20 object-contain"
+  />
+
+  <div>
+    <p className="font-heading text-base sm:text-lg font-semibold text-primary transition group-hover:text-secondary">
+      CargoVerge Logistics
+    </p>
+    <p className="text-xs text-slate-500 transition group-hover:text-slate-600">
+      At the Edge of Global Trade.
+    </p>
+  </div>
+</a>
 
           <nav className="hidden items-center gap-7 lg:flex">
             {navItems.map((item) => (
-              <a key={item.id} href={`#${item.id}`} className="text-sm font-medium text-slate-600 transition hover:text-primary">
+              <a key={item.id} href={`#${item.id}`} className="text-sm font-medium text-primary transition hover:text-secondary">
                 {item.label}
               </a>
             ))}
@@ -190,13 +195,20 @@ const onSubmit = async (event) => {
       </header>
 
       <main>
-        <section id="home" className="hero-map relative isolate">
-          <div className="absolute inset-0 -z-10 bg-grid bg-[size:16px_16px] opacity-20" />
-          <div className="section-shell py-16 md:py-24 lg:py-28 grid lg:grid-cols-2 gap-10 items-center">
+<section id="home" className="relative isolate bg-white">
   
+  {/* GRID BACKGROUND */}
+  <div className="absolute inset-0 -z-10 bg-grid bg-[size:16px_16px] opacity-10" />
+
+  {/* LOGO WATERMARK */}
+  <div className="absolute inset-0 -z-10 flex items-center justify-center opacity-[0.04] pointer-events-none">
+    <img src="/logo.svg" className="w-[400px] object-contain" />
+  </div>
+  
+<div className="section-shell relative z-10 py-16 md:py-24 lg:py-28 grid lg:grid-cols-2 gap-10 items-center">
   {/* LEFT CONTENT */}
   <motion.div
-    className="max-w-3xl text-white order-2 lg:order-1"
+    className="max-w-3xl text-slate-800 order-2 lg:order-1"
     variants={fadeUp}
     initial="hidden"
     animate="show"
@@ -210,7 +222,7 @@ const onSubmit = async (event) => {
       Connecting Businesses Worldwide Through Reliable Logistics
     </h1>
 
-    <p className="mt-6 max-w-2xl text-base text-slate-100 md:text-lg">
+    <p className="mt-6 max-w-2xl text-base text-slate-600 md:text-lg">
       CargoVerge Logistics delivers freight forwarding services across air, ocean, land, and warehousing so your business moves faster in global markets.
     </p>
 
@@ -218,7 +230,7 @@ const onSubmit = async (event) => {
       <a href="#contact" className="rounded-lg bg-secondary px-6 py-3 text-sm font-semibold text-slate-900 hover:brightness-95">
         Get a Quote
       </a>
-      <a href="#services" className="rounded-lg border border-white/60 px-6 py-3 text-sm font-semibold text-white hover:bg-white/10">
+      <a href="#services" className="rounded-lg border border-white/60 px-6 py-3 text-sm font-semibold text-slate-800 hover:bg-white/10">
         Our Services
       </a>
     </div>
