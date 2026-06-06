@@ -236,16 +236,17 @@ const onSubmit = async (event) => {
   </motion.div>
 )}
 
-{/* FMC Badge - Always Visible */}
-<div className="bg-white border-b border-slate-200">
-  <div className="section-shell flex justify-center py-3">
+{/* FMC Badge */}
+<div className="bg-white">
+  <div className="flex justify-center py-2">
     <img
       src={fmcIcon}
       alt="Federal Maritime Commission"
-      className="h-20 md:h-24 lg:h-28 object-contain"
+      className="h-24 md:h-28 object-contain"
     />
   </div>
 </div>
+
       <main>
 <section id="home" className="relative isolate bg-white">
   
