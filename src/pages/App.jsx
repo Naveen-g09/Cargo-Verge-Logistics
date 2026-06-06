@@ -236,19 +236,17 @@ const onSubmit = async (event) => {
   </motion.div>
 )}
 
-{/* FMC Badge */}
-<div className="bg-white">
-  <div className="flex justify-center py-2">
+      <main>
+<section id="home" className="relative isolate bg-white">
+
+  {/* FMC Badge */}
+  <div className="flex justify-center pt-4 pb-2">
     <img
       src={fmcIcon}
       alt="Federal Maritime Commission"
       className="h-24 md:h-28 object-contain"
     />
   </div>
-</div>
-
-      <main>
-<section id="home" className="relative isolate bg-white">
   
   {/* GRID BACKGROUND */}
   <div className="absolute inset-0 -z-10 bg-grid bg-[size:16px_16px] opacity-10" />
@@ -258,7 +256,7 @@ const onSubmit = async (event) => {
     <img src="/logo.png" className="w-[400px] object-contain" />
   </div>
   
-<div className="section-shell relative z-10 py-16 md:py-24 lg:py-28 grid lg:grid-cols-2 gap-10 items-center">
+<div className="section-shell relative z-10 pt-2 pb-16 md:pb-24 lg:pb-28 grid lg:grid-cols-2 gap-10 items-center">
   {/* LEFT CONTENT */}
   <motion.div
     className="max-w-3xl text-slate-800 order-2 lg:order-1"
