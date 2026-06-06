@@ -20,6 +20,8 @@ import hero3 from '../assets/hero-3.webp';
 import hero4 from '../assets/hero-4.webp';
 import hero5 from '../assets/hero-5.webp';
 import fmcIcon from '../assets/fmc-icon.webp';
+import dunsIcon from '../assets/duns-icon.webp';
+import glaIcon from '../assets/gla-icon.webp';
 import {
   navItems,
   serviceCards,
@@ -472,6 +474,32 @@ const onSubmit = async (event) => {
             ))}
           </div>
         </section>
+        {/* Certifications & Associations */}
+<section className="py-12 bg-white">
+  <div className="section-shell">
+    <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 items-center justify-items-center">
+      
+      <img
+        src={fmcIcon}
+        alt="Federal Maritime Commission"
+        className="h-24 md:h-28 w-auto object-contain transition hover:scale-105"
+      />
+
+      <img
+        src={dunsIcon}
+        alt="D-U-N-S Registered"
+        className="h-20 md:h-24 w-auto object-contain transition hover:scale-105"
+      />
+
+      <img
+        src={glaIcon}
+        alt="Global Logistics Alliance"
+        className="h-20 md:h-24 w-auto object-contain transition hover:scale-105"
+      />
+
+    </div>
+  </div>
+</section>
 
         <section className="bg-slate-100 py-16 md:py-24" id="contact">
           <div className="section-shell grid gap-10 lg:grid-cols-[1.15fr_1fr]">
