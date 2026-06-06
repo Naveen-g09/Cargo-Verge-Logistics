@@ -19,6 +19,7 @@ import hero2 from '../assets/hero-2.webp';
 import hero3 from '../assets/hero-3.webp';
 import hero4 from '../assets/hero-4.webp';
 import hero5 from '../assets/hero-5.webp';
+import fmcIcon from '../assets/fmc-icon.webp';
 import {
   navItems,
   serviceCards,
@@ -234,6 +235,17 @@ const onSubmit = async (event) => {
     />
   </motion.div>
 )}
+
+{/* FMC Badge - Always Visible */}
+<div className="bg-white border-b border-slate-200">
+  <div className="section-shell flex justify-center py-3">
+    <img
+      src={fmcIcon}
+      alt="Federal Maritime Commission"
+      className="h-20 md:h-24 lg:h-28 object-contain"
+    />
+  </div>
+</div>
       <main>
 <section id="home" className="relative isolate bg-white">
   
