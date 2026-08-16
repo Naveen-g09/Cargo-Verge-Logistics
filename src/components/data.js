@@ -22,6 +22,9 @@ import warehouseImg from '../assets/warehouse-freight.webp';
 import vehicleImg from '../assets/vehicle-import-export.webp';
 import cargoHandlingImg from '../assets/cargo-handling.webp';
 import logisticsImg from '../assets/Logistics-Services.webp';
+import lagosShipment1 from '../assets/testimonials/1.jpeg';
+import lagosShipment2 from '../assets/testimonials/2.jpeg';
+import lagosShipment3 from '../assets/testimonials/3.jpeg';
 
 export const navItems = [
   { label: 'Home', id: 'home' },
@@ -69,6 +72,28 @@ export const testimonials = [
     quote: 'The vehicle export support and cargo handling expertise saved us time and reduced customs bottlenecks.',
   },
 ];
+
+export const shipmentShowcase = {
+  eyebrow: 'Featured Client Shipment',
+  title: 'EXW Air Shipment: Shreveport, LA to Lagos Airport',
+  description:
+    'CargoVerge coordinated an export-ready air freight movement from Shreveport, Louisiana 71107 to Lagos Airport, consolidating 28 pallets with careful handling, pallet control, and milestone-focused coordination.',
+  quote:
+    'A time-sensitive USA to Lagos air freight project handled with the visibility, care, and execution our cargo required.',
+  client: 'Industrial cargo client',
+  details: [
+    { label: 'Shipment Type', value: 'EXW Air Shipment' },
+    { label: 'Origin', value: 'Shreveport, LA 71107' },
+    { label: 'Destination', value: 'Lagos Airport' },
+    { label: 'Pallets', value: '28' },
+    { label: 'Total Weight', value: '14,054 kgs' },
+  ],
+  images: [
+    { src: lagosShipment1, alt: 'Palletized drums prepared for air shipment to Lagos Airport' },
+    { src: lagosShipment2, alt: 'Secured shipment pallets staged between warehouse crates' },
+    { src: lagosShipment3, alt: 'Full warehouse view of 28 pallet air shipment' },
+  ],
+};
 
 export const highlights = [
   {

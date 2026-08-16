@@ -30,6 +30,7 @@ import {
   highlights,
   stats,
   routeIcon,
+  shipmentShowcase,
 } from '../components/data';
 
 const RouteIcon = routeIcon;
@@ -463,7 +464,67 @@ const onSubmit = async (event) => {
         </section>
 
         <section className="section-shell py-16 md:py-24" id="testimonials">
-          <h2 className="font-heading text-3xl font-semibold text-primary">Client Testimonials</h2>
+          <div className="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-[0.25em] text-secondary">Client success stories</p>
+              <h2 className="mt-2 font-heading text-3xl font-semibold text-primary">Client Testimonials</h2>
+            </div>
+            <p className="max-w-2xl text-sm leading-6 text-slate-600">
+              Real project snapshots that show how CargoVerge moves complex freight with care, visibility, and dependable coordination.
+            </p>
+          </div>
+
+          <motion.article
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.2 }}
+            className="mt-8 overflow-hidden rounded-[2rem] border border-slate-200 bg-white shadow-card"
+          >
+            <div className="grid gap-0 lg:grid-cols-[1.05fr_0.95fr]">
+              <div className="relative min-h-[420px] bg-slate-950 p-3 sm:p-4">
+                <img
+                  src={shipmentShowcase.images[2].src}
+                  alt={shipmentShowcase.images[2].alt}
+                  className="h-full min-h-[390px] w-full rounded-[1.5rem] object-cover"
+                />
+                <div className="absolute inset-x-7 bottom-7 rounded-2xl border border-white/20 bg-primary/90 p-5 text-white shadow-2xl backdrop-blur">
+                  <p className="text-xs font-semibold uppercase tracking-[0.2em] text-secondary">{shipmentShowcase.eyebrow}</p>
+                  <h3 className="mt-2 font-heading text-xl font-semibold">{shipmentShowcase.title}</h3>
+                  <p className="mt-2 text-sm leading-6 text-slate-100">“{shipmentShowcase.quote}”</p>
+                </div>
+              </div>
+
+              <div className="flex flex-col justify-between p-6 sm:p-8 lg:p-10">
+                <div>
+                  <p className="text-sm font-semibold text-secondary">USA to Nigeria air freight</p>
+                  <h3 className="mt-2 font-heading text-2xl font-semibold text-primary">28 pallets moved from Shreveport to Lagos</h3>
+                  <p className="mt-4 text-sm leading-6 text-slate-600">{shipmentShowcase.description}</p>
+
+                  <div className="mt-6 grid gap-3 sm:grid-cols-2">
+                    {shipmentShowcase.details.map((detail) => (
+                      <div key={detail.label} className="rounded-2xl bg-slate-50 p-4 ring-1 ring-slate-200">
+                        <p className="text-xs uppercase tracking-[0.15em] text-slate-500">{detail.label}</p>
+                        <p className="mt-1 font-heading text-lg font-semibold text-primary">{detail.value}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="mt-6 grid grid-cols-3 gap-3">
+                  {shipmentShowcase.images.map((image, index) => (
+                    <img
+                      key={image.alt}
+                      src={image.src}
+                      alt={image.alt}
+                      className={`h-28 w-full rounded-2xl object-cover ring-2 ${index === 2 ? 'ring-secondary' : 'ring-slate-200'}`}
+                    />
+                  ))}
+                </div>
+              </div>
+            </div>
+          </motion.article>
+
           <div className="mt-8 grid gap-5 md:grid-cols-3">
             {testimonials.map((item) => (
               <div key={item.name} className="rounded-2xl border border-slate-200 bg-white p-6 shadow-card">
