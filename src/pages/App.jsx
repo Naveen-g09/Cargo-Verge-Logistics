@@ -643,8 +643,8 @@ const onSubmit = async (event) => {
                   <li className="flex items-start gap-3"><Mail className="mt-0.5 text-secondary" size={16} /> info@cargovergelogistics.com</li>
                   <li className="flex items-start gap-3"><MapPin className="mt-0.5 text-secondary" size={16} /> USA: 16192 Coastal Highway, Lewes, Delaware 19958</li>
                   <li className="flex items-start gap-3"><MapPin className="mt-0.5 text-secondary" size={16} /> Canada: 15093 Danby Road, Georgetown Ontario, L7G 0B1</li>
-                  <li className="flex items-start gap-3"><MapPin className="mt-0.5 text-secondary" size={16} /> India: Hari Niwas Plot No.81 202 Sector- 5 Taloja Navi Mumbai 410208 India</li>
-                  <li className="flex items-start gap-3"><MapPin className="mt-0.5 text-secondary" size={16} /> UAE: The Iridium Building 2nd Floor 209 Unit 209-19 AL Barsha 1 Dubai UAE</li>
+                  <li className="flex items-start gap-3"><MapPin className="mt-0.5 text-secondary" size={16} /> India: Hari Niwas, Plot No.81, 202, Sector- 5, Taloja, Navi Mumbai - 410208, India</li>
+                  <li className="flex items-start gap-3"><MapPin className="mt-0.5 text-secondary" size={16} /> UAE: The Iridium Building, 2nd Floor, 209, Unit 209-19, AL Barsha 1, Dubai UAE</li>
                 </ul>
                 <div className="mt-6 flex gap-3">
   <a
