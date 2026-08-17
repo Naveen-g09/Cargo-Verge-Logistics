@@ -641,10 +641,10 @@ const onSubmit = async (event) => {
   </a>
 </li>
                   <li className="flex items-start gap-3"><Mail className="mt-0.5 text-secondary" size={16} /> info@cargovergelogistics.com</li>
-                  <li className="flex items-start gap-3"><MapPin className="mt-0.5 text-secondary" size={16} /> USA: 16192 Coastal Highway, Lewes, Delaware 19958</li>
-                  <li className="flex items-start gap-3"><MapPin className="mt-0.5 text-secondary" size={16} /> Canada: 15093 Danby Road, Georgetown Ontario, L7G 0B1</li>
-                  <li className="flex items-start gap-3"><MapPin className="mt-0.5 text-secondary" size={16} /> India: Hari Niwas, Plot No.81, 202, Sector- 5, Taloja, Navi Mumbai - 410208, India</li>
-                  <li className="flex items-start gap-3"><MapPin className="mt-0.5 text-secondary" size={16} /> UAE: The Iridium Building, 2nd Floor, 209, Unit 209-19, AL Barsha 1, Dubai UAE</li>
+                  <li className="flex items-start gap-3"><MapPin className="mt-0.5 text-secondary" size={16} /> USA: 16192 Coastal Highway, Lewes Delaware 19958 USA</li>
+                  <li className="flex items-start gap-3"><MapPin className="mt-0.5 text-secondary" size={16} /> Canada: 210-5800 Ambler Drive, Mississauga, Ontario L4W 4J4 Canada</li>
+                  <li className="flex items-start gap-3"><MapPin className="mt-0.5 text-secondary" size={16} /> India: Hari Niwas Plot No.81 202 Sector- 5 Taloja Navi Mumbai 410208 India</li>
+                  <li className="flex items-start gap-3"><MapPin className="mt-0.5 text-secondary" size={16} /> UAE: The Iridium Building 2nd Floor 209 Unit 209-19 AL Barsha 1 Dubai UAE</li>
                 </ul>
                 <div className="mt-6 flex gap-3">
   <a
@@ -682,13 +682,13 @@ const onSubmit = async (event) => {
               <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-card">
                 <iframe
                   title="CargoVerge Locations"
-                  src="https://www.google.com/maps?q=16192%20Coastal%20Highway%20Lewes%20Delaware%2019958&output=embed"
+                  src="https://www.google.com/maps?q=16192%20Coastal%20Highway%20Lewes%20Delaware%2019958%20USA&output=embed"
                   loading="lazy"
                   className="h-56 w-full border-0"
                 />
                 <iframe
                   title="CargoVerge Canada"
-                  src="https://www.google.com/maps?q=15093%20Danby%20Road%20Georgetown%20Ontario%20L7G%200B1&output=embed"
+                  src="https://www.google.com/maps?q=210-5800%20Ambler%20Drive%20Mississauga%20Ontario%20L4W%204J4%20Canada&output=embed"
                   loading="lazy"
                   className="h-56 w-full border-0"
                 />
