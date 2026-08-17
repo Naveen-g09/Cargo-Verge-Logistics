@@ -643,6 +643,8 @@ const onSubmit = async (event) => {
                   <li className="flex items-start gap-3"><Mail className="mt-0.5 text-secondary" size={16} /> info@cargovergelogistics.com</li>
                   <li className="flex items-start gap-3"><MapPin className="mt-0.5 text-secondary" size={16} /> USA: 16192 Coastal Highway, Lewes, Delaware 19958</li>
                   <li className="flex items-start gap-3"><MapPin className="mt-0.5 text-secondary" size={16} /> Canada: 15093 Danby Road, Georgetown Ontario, L7G 0B1</li>
+                  <li className="flex items-start gap-3"><MapPin className="mt-0.5 text-secondary" size={16} /> India: Hari Niwas, Plot No.81, 202, Sector- 5, Taloja, Navi Mumbai - 410208, India</li>
+                  <li className="flex items-start gap-3"><MapPin className="mt-0.5 text-secondary" size={16} /> UAE: The Iridium Building, 2nd Floor, 209, Unit 209-19, AL Barsha 1, Dubai UAE</li>
                 </ul>
                 <div className="mt-6 flex gap-3">
   <a
@@ -687,6 +689,18 @@ const onSubmit = async (event) => {
                 <iframe
                   title="CargoVerge Canada"
                   src="https://www.google.com/maps?q=15093%20Danby%20Road%20Georgetown%20Ontario%20L7G%200B1&output=embed"
+                  loading="lazy"
+                  className="h-56 w-full border-0"
+                />
+                <iframe
+                  title="CargoVerge India"
+                  src="https://www.google.com/maps?q=Hari%20Niwas%20Plot%20No.81%20202%20Sector-%205%20Taloja%20Navi%20Mumbai%20410208%20India&output=embed"
+                  loading="lazy"
+                  className="h-56 w-full border-0"
+                />
+                <iframe
+                  title="CargoVerge UAE"
+                  src="https://www.google.com/maps?q=The%20Iridium%20Building%202nd%20Floor%20209%20Unit%20209-19%20AL%20Barsha%201%20Dubai%20UAE&output=embed"
                   loading="lazy"
                   className="h-56 w-full border-0"
                 />
